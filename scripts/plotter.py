@@ -344,7 +344,7 @@ class Plotter:
 
                     # Create plot for this gene
 
-                    fig,ax = plt.subplots(figsize=(12,8))
+                    fig,ax = plt.subplots(figsize=(20,12))
                     g      = sns.barplot(x=fchanges,y=conds,palette=palette)  # horizontal bar chart
 
                     # Set xaxis limits based on abs value of max fold change for gene
