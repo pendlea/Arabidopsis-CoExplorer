@@ -330,7 +330,7 @@ class Plotter:
                     # Prep: For this gene 1) build list of fold change values 2) Build color palette
                     for i in range(len(conds)):
                         cond        = conds[i]
-                        pvalue      = float(results[gene][i][1])
+                        pvalue      = float(results[gene][i][2]) #FDR is in [2], raw pvalue is in [1]
                         fchange     = float(results[gene][i][3])
 
                         fchanges.append(fchange)
@@ -372,11 +372,11 @@ class Plotter:
             
                     # Create legend, place below plot
                     ax.legend(color_lines,
-                            [    'Highly underexpressed (p < 0.01)'
-                                ,'Underexpressed (p < 0.05)'
-                                ,'Highly overexpressed (p < 0.01)'
-                                ,'Overexpressed (p < 0.05)'
-                                ,'No DE (p >= 0.05)']
+                            [    'Highly underexpressed (FDR < 0.01)'
+                                ,'Underexpressed (FDR < 0.05)'
+                                ,'Highly overexpressed (FDR < 0.01)'
+                                ,'Overexpressed (FDR < 0.05)'
+                                ,'No DE (FDR >= 0.05)']
                             ,loc            = 'upper center'
                             ,bbox_to_anchor = (0.5, -0.1)
                             ,fancybox       = True
